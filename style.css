@@ -22,12 +22,36 @@
   font: 16px/1 "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-.paragraph{
-  font-size: 25px !important;
-  color: red;
+h2{
+  font-size: 30px !important;
+  
+
+}
+
+body, html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+ 
+  background-image: url("http://nedward.org/junkie/subwaymap.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+
 }
 
 .jumbotron {
   background-color: white;
   border: 4px solid grey;
+
 }
+
+.table {
+  background: white;
+}
+
+.trainInput {
+  background: white;
+}
+
