@@ -45,11 +45,6 @@ $(".submitButton").on("click", function(){
 });
 
 
-// setInterval(function(){
-//    updateTime();
-// },60000);
-
-// function updateTime(){
 
 function InitialUpload(){database.ref().on("child_added", function(childSnapshot, prevChildKey){
 
@@ -81,12 +76,12 @@ function InitialUpload(){database.ref().on("child_added", function(childSnapshot
 
 
 
-  // $(".tableBody").empty();
+ 
   $(".tableBody").append("<tr><td>" + childTrainName +"</td><td>" + childDestination + "</td><td>" + childTFrequency + "</td><td>" + nextArrival + "</td><td>" + tMinutesTillTrain +"</td></tr>");
 
 });
 };
-// InitialUpload();
+
 
 setInterval(function(){
    updateTime();
@@ -98,6 +93,4 @@ function updateTime(){
 };
 updateTime();
 
-// };
 
-// updateTime();
