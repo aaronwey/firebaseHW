@@ -44,7 +44,14 @@ $(".submitButton").on("click", function(){
 
 });
 
-database.ref().on("child_added", function(childSnapshot, prevChildKey){
+
+// setInterval(function(){
+//    updateTime();
+// },60000);
+
+// function updateTime(){
+
+function InitialUpload(){database.ref().on("child_added", function(childSnapshot, prevChildKey){
 
   TrainName = childSnapshot.val().TrainName;
   Destination = childSnapshot.val().Destination;
@@ -57,6 +64,7 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey){
 
   console.log(currentTime);
   console.log("current time: " + moment(currentTime).format("hh:mm"));
+  
 
   var diffTime = currentTime.diff(moment(FirstTrainConverted), "minutes");
   var tRemainder = diffTime % tFrequency;
@@ -70,11 +78,26 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey){
   var childTrainName = childSnapshot.val().TrainName;
   var childDestination = childSnapshot.val().Destination;
   var childTFrequency = childSnapshot.val().tFrequency;
-  
 
 
 
+  // $(".tableBody").empty();
   $(".tableBody").append("<tr><td>" + childTrainName +"</td><td>" + childDestination + "</td><td>" + childTFrequency + "</td><td>" + nextArrival + "</td><td>" + tMinutesTillTrain +"</td></tr>");
 
 });
+};
+// InitialUpload();
 
+setInterval(function(){
+   updateTime();
+},60000);
+
+function updateTime(){
+  $(".tableBody").empty();
+  InitialUpload();
+};
+updateTime();
+
+// };
+
+// updateTime();
